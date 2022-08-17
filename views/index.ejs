@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Best blog ever!</h1>
+    <!-- <p>This blog is powered by Markdown</p> -->
+    <div class="add"><a href="articles/new">Add New Article</a></div>
+
+    <div class="articles">
+        <% articles.reverse().forEach(article=>{ %>
+            <div class="article">
+                <h2 class="title">
+                    <%= article.title %>
+                </h2>
+                <p class="date">
+                    <%= new Date(article.date).toLocaleString() %>
+                </p>
+                <p class="body">
+                    <%= article.body %>
+                </p>
+                <p class="name">
+                    By <%= article.author_name %>
+                </p>
+                <a href='articles/<%= article._id %>' >View Details</a>
+            </div>
+            <% }) %>
+    </div>
+</body>
+
+</html>
